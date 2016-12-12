@@ -22,3 +22,19 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.players {
+  display: flex;
+}
+
+.player {
+  width: 50%;
+  margin: 0px;
+
+  text-align: center;
+}
+
+.repeater span {
+  display: inline-block;
+  margin: 4px;
+}
