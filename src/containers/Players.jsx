@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
   const players = Object.keys(state.players).map(k => ({
     name: k,
     ...state.players[k],
+    move: state.moves.visible ? state.moves[k] : null,
   }));
 
   return {

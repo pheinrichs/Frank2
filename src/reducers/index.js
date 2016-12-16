@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
 
+import moves from './moves';
 import players from './players';
 
 export default combineReducers({
+  moves,
   players,
 });
 
@@ -24,13 +26,8 @@ export default combineReducers({
   },
   actions: {
     visible: true
-    p1: {
-      type: 'shoot' | 'block' | 'reload'
-      success: true || false
-    },
-    p2: {
-      ...
-    }
+    p1: 'shoot' | 'block' | 'reload' | null,
+    p2: 'shoot' | 'block' | 'reload' | null,
   }
 }
 */

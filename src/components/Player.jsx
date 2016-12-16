@@ -11,7 +11,7 @@ function Player({name, health, bullets, move}) {
   switch (move) {
   case 'block': shownMove = <Block />; break;
   case 'reload': shownMove = <Reload />; break;
-  case 'shot': shownMove = <Shot />; break;
+  case 'shoot': shownMove = <Shot />; break;
   default: shownMove = null;
   }
 
