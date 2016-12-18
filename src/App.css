@@ -38,3 +38,7 @@
   display: inline-block;
   margin: 4px;
 }
+
+.move .action {
+  font-size: 3em;
+}

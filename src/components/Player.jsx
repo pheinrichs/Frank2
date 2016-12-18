@@ -22,7 +22,7 @@ function Player({name, health, bullets, move}) {
       <Repeater count={health}>{i => <Heart key={name + '-health-' + i.toString()} />}</Repeater>
       <Repeater count={bullets}>{i => <Bullet key={name + '-bullet-' + i.toString()} />}</Repeater>
 
-      <div>
+      <div className="move">
         {shownMove}
       </div>
     </div>
