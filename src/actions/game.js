@@ -1,12 +1,48 @@
 import Tone from 'tone';
 import * as moves from './moves';
+import * as players from './players';
+
+function turn(dispatch, p1, p2) {
+  if (p1 === 'shoot') {
+    dispatch(players.fire('p1'));
+
+    if (p2 !== 'block') {
+      dispatch(players.hurt('p2'));
+    }
+  }
+
+  if (p2 === 'shoot') {
+    dispatch(players.fire('p2'));
+
+    if (p1 !== 'block') {
+      dispatch(players.hurt('p1'));
+    }
+  }
+
+  if (p1 === 'reload') {
+    dispatch(players.reload('p1'));
+  }
+
+  if (p2 === 'reload') {
+    dispatch(players.reload('p2'));
+  }
+}
 
 export function play() {
   const synth = new Tone.Synth().toMaster();
 
-  return dispatch => {
+  return (dispatch, getState) => {
+    const doTurn = turn.bind(null, dispatch);
     const pattern = new Tone.Pattern((time, pitch) => {
-      dispatch(moves.changeVisibility(pitch === 'C#5'));
+      const {visible: previous, p1, p2} = getState().moves;
+      const current = pitch === 'C#5';
+
+      dispatch(moves.changeVisibility(current));
+
+      if (previous && !current) {
+        doTurn(p1, p2);
+      }
+
       synth.triggerAttackRelease(pitch, "4n", time);
     }, ["B2", "C3", "E3", "G3", "C#5"], "upDown");
     pattern.start(0);
