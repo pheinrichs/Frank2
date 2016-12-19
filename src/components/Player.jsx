@@ -1,4 +1,5 @@
 import React from 'react';
+import PlayerArea from './PlayerArea';
 import Repeater from './Repeater';
 import Bullet from './Bullet';
 import Heart from './Heart';
@@ -16,18 +17,16 @@ function Player({name, health, bullets, move}) {
   }
 
   return (
-    <div className="player">
-      <h2>{name}</h2>
-
+    <PlayerArea name={name}>
       <Repeater count={health}>{i => <Heart key={name + '-health-' + i.toString()} />}</Repeater>
       <Repeater count={bullets}>{i => <Bullet key={name + '-bullet-' + i.toString()} />}</Repeater>
 
       <div className="move">
         {shownMove}
       </div>
-    </div>
-  )
-};
+    </PlayerArea>
+  );
+}
 
 Player.propTypes = {
   name: React.PropTypes.string.isRequired,
