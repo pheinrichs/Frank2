@@ -63,9 +63,13 @@ const keys = {
 
 export function press({key}) {
   return dispatch => {
+    if (key === ' ') {
+      return dispatch(players.reset());
+    }
+
     const match = keys[key];
     if (match) {
-      dispatch(moves.move(match));
+      return dispatch(moves.move(match));
     }
   };
 }

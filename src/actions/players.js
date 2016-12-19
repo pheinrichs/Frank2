@@ -2,6 +2,14 @@ export const FIRE = 'FIRE';
 export const HURT = 'HURT';
 export const RELOAD = 'RELOAD';
 
+export const RESET = 'RESET';
+
+export function reset() {
+  return {
+    type: RESET,
+  };
+}
+
 export function fire(player) {
   return {
     type: FIRE,

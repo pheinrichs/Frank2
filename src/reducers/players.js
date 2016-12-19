@@ -13,10 +13,15 @@ const initialState = {
 };
 
 export default function players(state = initialState, action) {
-  const result = {...state};
+  const result = {};
+  Object.keys(state).forEach(k => result[k] = {...state[k]});
+
   const {type, player: index} = action;
   const player = result[index];
-  const other = result[index === 'p1' ? 'p2' : 'p1'];
+
+  if (type === actions.RESET) {
+    return initialState;
+  }
 
   if (type === actions.FIRE) {
     player.bullets--;
