@@ -1,6 +1,6 @@
 # About Frank2
 
-This is an experiment with a rythm game like western rock paper scissors. Players can choose to shoot, block or reload. Last once standing wins! There are no ties ;).
+An experimental rhythm game plus western themed rock paper scissors. Players can choose to shoot, block or reload. Last once standing wins! There are no ties ;).
 
 To play use `A`, `S`, `D` for player 1 and `J`, `K`, `L` for player 2.
 To reset the game press `space`.
